@@ -2,19 +2,34 @@ import React from 'react';
 class App extends React.Component {
   constructor(){
     super();
-    this.state = {txt: 'asldfjlsdkj'}
+    this.state = {txt: ''}
+    this.update = this.update.bind(this)
   }
   update(e){
     this.setState({txt: e.target.value})
   }
    render(){
-       return (
+      return (
         <div>
-          <input type='text' onChange={this.update.bind(this)} />
-          <h1>saldfjkls {this.state.txt}</h1>
-       </div>
-       )
+          <Widget txt={this.state.txt} update={this.update}/>
+          <Widget txt={this.state.txt} update={this.update}/>
+          <Widget txt={this.state.txt} update={this.update}/>
+          <Widget txt={this.state.txt} update={this.update}/>
+          <Widget txt={this.state.txt} update={this.update}/>
+          <Widget txt={this.state.txt} update={this.update}/>
+          <Widget txt={this.state.txt} update={this.update}/>
+        </div>
+      )
    }
+}
+
+const Widget = (props) => {
+  return(
+      <div>
+          <input type='text' onChange={props.update} />
+          <h1>{props.txt}</h1>
+      </div>
+    )
 }
 // App.defaultProps = {
 //   txt: 'this is default'
